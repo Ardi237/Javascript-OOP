@@ -1,0 +1,111 @@
+A. Umum : 
+1. Di JavaScript, prototype adalah mekanisme yang memungkinkan objek untuk mewarisi properti dan metode dari objek lain.
+------------------------------------------------------------------------
+2. Setiap fungsi di JavaScript memiliki properti khusus yang disebut prototype, yang digunakan sebagai template untuk membuat objek baru. 
+------------------------------------------------------------------------
+3. Konsep ini merupakan bagian dari model pewarisan JavaScript yang dikenal sebagai prototype-based inheritance atau prototypal inheritance.
+------------------------------------------------------------------------
+
+
+B. Penjelasan dasar tentang prototype :
+1. Prototype pada Function: 
+* Setiap fungsi di JavaScript secara otomatis memiliki properti prototype, yang merupakan objek. 
+* Objek ini digunakan sebagai basis untuk membuat objek lain ketika fungsi tersebut digunakan sebagai konstruktor (dengan kata kunci new).
+------------------------------------------------------------------------
+2. Prototype Chain (Rantai Prototipe):
+* JavaScript menggunakan rantai prototipe untuk melakukan pencarian properti atau metode.
+* Jika suatu objek tidak memiliki properti atau metode yang diminta, JavaScript akan   
+  mencarinya di objek prototype. 
+* Jika objek prototype juga tidak memiliki properti tersebut, JavaScript akan terus mencari 
+  ke atas rantai prototipe hingga mencapai Object.Prototype, yang merupakan akar dari semua 
+  objek di JavaScript. 
+* Jika properti masih belum ditemukan, JavaScript mengembalikan undefined.
+------------------------------------------------------------------------
+3. Inheritance (Pewarisan) : Dengan menggunakan prototype, objek dapat mewarisi properti dan metode dari objek lain, sehingga memungkinkan reuse kode.
+------------------------------------------------------------------------
+
+
+
+
+C. Contoh Penggunaan Prototype di JavaScript :
+1. Prototype pada Constructor Function :
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+// Menambahkan metode ke prototype dari constructor function Person
+Person.prototype.greet = function() {
+  return `Hello, my name is ${this.name}.`;
+};
+
+// Membuat objek baru menggunakan constructor function
+const person1 = new Person('Alice', 25);
+
+// Menggunakan metode yang diwarisi dari prototype
+console.log(person1.greet()); // Output: "Hello, my name is Alice."
+------------------------------------------------------------------------
+// Kita membuat constructor function Person yang memiliki properti name dan age. Kemudian kita menambahkan metode greet ke Person.prototype. Semua objek yang dibuat dengan constructor Person akan mewarisi metode ini melalui prototype.
+------------------------------------------------------------------------
+2. Prototype Chain : 
+* console.log(person1.hasOwnProperty('name')); // Output: true
+* console.log(person1.hasOwnProperty('greet')); // Output: false
+Pada contoh ini, person1 memiliki properti name, tetapi tidak memiliki properti greet secara langsung. JavaScript akan mencarinya di Person.prototype dan menemukan metode greet di sana.
+------------------------------------------------------------------------
+3. Extending Prototype of Built-in Objects:
+Array.prototype.sum = function() {
+  return this.reduce((acc, curr) => acc + curr, 0);
+};
+
+const numbers = [1, 2, 3, 4, 5];
+console.log(numbers.sum()); // Output: 15
+------------------------------------------------------------------------
+//penjelasan : Di sini, kita menambahkan metode sum ke Array.prototype. Semua array di JavaScript sekarang akan memiliki akses ke metode sum.
+
+
+
+D. Keuntungan Menggunakan Prototype:
+1. Efisiensi Memori:
+* Ketika kamu menambahkan metode ke prototype, metode tersebut tidak perlu disalin ke setiap objek yang dibuat dari constructor function. 
+* Ini menghemat memori karena metode tersebut hanya disimpan sekali dalam prototipe, tetapi dapat diakses oleh semua objek.
+------------------------------------------------------------------------
+2. Pewarisan:
+* Prototype memungkinkan pewarisan properti dan metode dari satu objek ke objek lain, yang memungkinkan reuse kode dan struktur hierarkis yang lebih teratur.
+------------------------------------------------------------------------
+3. Dynamic Behavior:
+Kamu dapat menambahkan metode atau properti baru ke prototype bahkan setelah objek dibuat, dan semua objek yang terkait dengan prototipe tersebut akan langsung mendapatkan metode atau properti baru tersebut.
+------------------------------------------------------------------------
+
+
+
+E. Keterbatasan Prototype:
+1. Kebingungan:
+Bagi pemula, konsep prototipe dan rantai prototipe dapat membingungkan dibandingkan dengan pewarisan berbasis kelas di bahasa pemrograman lain.
+------------------------------------------------------------------------
+2. Kinerja:
+Meskipun prototipe membuat pewarisan properti efisien, pencarian di rantai prototipe yang panjang dapat menambah overhead kinerja dalam aplikasi yang besar dan kompleks.
+------------------------------------------------------------------------
+
+
+F. Kesimpulan :
+1. Prototipe adalah fitur inti dalam JavaScript yang memungkinkan pewarisan dan reuse kode. 2. Dengan memahami bagaimana prototipe bekerja, kamu bisa membuat kode yang lebih efisien 
+   dan terstruktur dengan baik. 
+3. Prototype chain juga memberikan fleksibilitas dalam pencarian properti dan metode, 
+   meskipun perlu berhati-hati dalam menggunakannya agar tidak memperlambat kinerja aplikasi.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
