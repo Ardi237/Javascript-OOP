@@ -1,0 +1,262 @@
+CONTOH STUDI KASUS
+
+
+A. OBJECTS (Objek) :
+1. Objek adalah entitasyang memiliki data dan method :
+---------------------------------------------------
+const car = {
+  brand: "Toyota",
+  model: "Corolla",
+  start() {
+    console.log(`${this.brand} ${this.model} is starting.`);
+  }
+};
+
+// Menggunakan objek
+car.start(); // Output: Toyota Corolla is starting.
+---------------------------------------------------
+---------------------------------------------------
+
+
+
+B. Class (Kelas) : 
+1. Class adalah blueprint atau template untuk membuat objek.
+---------------------------------------------------
+class Car {
+  constructor(brand, model) {
+    this.brand = brand;
+    this.model = model;
+  }
+
+  start() {
+    console.log(`${this.brand} ${this.model} is starting.`);
+  }
+}
+
+// Membuat instance dari class
+const myCar = new Car("Honda", "Civic");
+myCar.start(); // Output: Honda Civic is starting.
+---------------------------------------------------
+---------------------------------------------------
+
+
+
+C. Encapsulation (Enkapsulasi) : 
+1. Encapsulation melibatkan penyembunyian data internal objek dan hanya mengekspos metode tertentu untuk berinteraksi dengan data tersebut.
+---------------------------------------------------
+class Car {
+  #fuelLevel = 0; // Properti private
+
+  constructor(brand, model) {
+    this.brand = brand;
+    this.model = model;
+  }
+
+  addFuel(amount) {
+    if (amount > 0) {
+      this.#fuelLevel += amount;
+      console.log(`Fuel level: ${this.#fuelLevel}`);
+    } else {
+      console.log("Invalid fuel amount.");
+    }
+  }
+
+  start() {
+    if (this.#fuelLevel > 0) {
+      console.log(`${this.brand} ${this.model} is starting.`);
+    } else {
+      console.log("Not enough fuel.");
+    }
+  }
+}
+
+// Membuat instance dari class
+const myCar = new Car("Honda", "Civic");
+myCar.addFuel(10);  // Fuel level: 10
+myCar.start();      // Output: Honda Civic is starting.
+---------------------------------------------------
+
+
+
+D. Polymorphism (Poliimorfisme) :
+1. Polymorphism memungkinkan metode yang sama untuk berperilaku berbeda berdasarkan objek yang memanggilnya. 
+---------------------------------------------------
+class Vehicle {
+  start() {
+    console.log("Vehicle is starting.");
+  }
+}
+
+class Car extends Vehicle {
+  start() {
+    console.log("Car is starting.");
+  }
+}
+
+class Bike extends Vehicle {
+  start() {
+    console.log("Bike is starting.");
+  }
+}
+
+const myCar = new Car();
+const myBike = new Bike();
+
+myCar.start();  // Output: Car is starting.
+myBike.start(); // Output: Bike is starting.
+---------------------------------------------------
+
+
+
+E. Abstraction (Abstraksi) :
+1. Abstraction melibatkan penyederhanaan interaksi dengan objek dengan hanya mengekspos fitur penting dan menyembunyikan detail implementasi.
+---------------------------------------------------
+class Payment {
+  processPayment(amount) {
+    console.log(`Processing payment of $${amount}`);
+    this.#deductFromAccount(amount);
+  }
+
+  #deductFromAccount(amount) {
+    // Metode private untuk memotong saldo (detail implementasi disembunyikan)
+    console.log(`$${amount} has been deducted from your account.`);
+  }
+}
+
+const payment = new Payment();
+payment.processPayment(100);  // Output: Processing payment of $100
+                              // $100 has been deducted from your account.
+---------------------------------------------------
+---------------------------------------------------
+
+
+
+F. Modularitas :
+1. Kode dapat dipecah menjadi modul-modul yang lebih kecil agar lebih mudah dikelola dan dipelihara. 
+---------------------------------------------------
+// Vehicle.js
+class Vehicle {
+  constructor(brand, model) {
+    this.brand = brand;
+    this.model = model;
+  }
+
+  start() {
+    console.log(`${this.brand} ${this.model} is starting.`);
+  }
+}
+
+export default Vehicle;
+
+// ElectricCar.js
+import Vehicle from './Vehicle.js';
+
+class ElectricCar extends Vehicle {
+  constructor(brand, model, batteryCapacity) {
+    super(brand, model);
+    this.batteryCapacity = batteryCapacity;
+  }
+
+  charge() {
+    console.log(`${this.brand} ${this.model} is charging.`);
+  }
+}
+
+export default ElectricCar;
+
+---------------------------------------------------
+---------------------------------------------------
+
+
+
+G. Reuse (Penggunaan Kembali) :
+1. Dengan menggunakan inheritance dan modul, kamu dapat menggunakan kembali kode di berbagai bagian program.
+---------------------------------------------------
+import ElectricCar from './ElectricCar.js';
+
+const myTesla = new ElectricCar("Tesla", "Model X", 100);
+myTesla.start();   // Output: Tesla Model X is starting.
+myTesla.charge();  // Output: Tesla Model X is charging.
+---------------------------------------------------
+---------------------------------------------------
+
+
+
+H. Flexibilitas & Ekstensibilitas :
+1. Kode mudah diperluas dan dimodifikasi dengan menambahkan class baru atau mengubah class yang ada.
+---------------------------------------------------
+class Truck extends Vehicle {
+  constructor(brand, model, loadCapacity) {
+    super(brand, model);
+    this.loadCapacity = loadCapacity;
+  }
+
+  loadCargo(cargoWeight) {
+    console.log(`${this.brand} ${this.model} is loading ${cargoWeight} tons of cargo.`);
+  }
+}
+
+const myTruck = new Truck("Ford", "F-150", 5);
+myTruck.start();  // Output: Ford F-150 is starting.
+myTruck.loadCargo(3); // Output: Ford F-150 is loading 3 tons of cargo.
+
+---------------------------------------------------
+---------------------------------------------------
+
+
+
+
+I. Pengelolaan Kompleksitas :
+1. Dengan membagi kode menjadi objek dan modul, kompleksitas besar dapat dikelola dengan lebih baik.  
+---------------------------------------------------
+// Dengan menggunakan inheritance, modularitas, dan abstraction, kode untuk mengelola
+// berbagai jenis kendaraan dapat dibuat lebih mudah dipahami dan dikelola.
+
+const vehicles = [
+  new ElectricCar("Tesla", "Model 3", 75),
+  new Truck("Ford", "Ranger", 4),
+  new Car("Toyota", "Camry")
+];
+
+vehicles.forEach(vehicle => vehicle.start());
+
+---------------------------------------------------
+---------------------------------------------------
+
+
+
+
+J. Kesimpulan :
+1. Objects: myCar, myTesla, dan myTruck adalah objek.
+---------------------------------------------------
+2. Class: Car, Vehicle, ElectricCar, dan Truck adalah kelas yang mendefinisikan blueprint dari objek.
+---------------------------------------------------
+3. Encapsulation: Properti seperti #fuelLevel disembunyikan dan hanya dapat diakses melalui metode tertentu.
+---------------------------------------------------
+4. Inheritance: ElectricCar dan Truck mewarisi sifat dari Vehicle.
+---------------------------------------------------
+5. Polymorphism: Metode start() berperilaku berbeda pada kelas Car, Bike, dan Truck.
+---------------------------------------------------
+6. Abstraction: Detail implementasi seperti #deductFromAccount() disembunyikan dari pengguna.
+---------------------------------------------------
+7. Modularitas: Kode dipecah menjadi beberapa file untuk mempermudah pengelolaan.
+---------------------------------------------------
+8. Reuse: Kode dapat digunakan kembali di berbagai bagian program.
+---------------------------------------------------
+9. Flexibilitas & Ekstensibilitas: Kode dapat diperluas dengan menambahkan fitur atau kelas baru tanpa mempengaruhi kode yang ada.
+---------------------------------------------------
+10. Pengelolaan Kompleksitas: Dengan membagi kode menjadi objek dan modul, kompleksitas program besar lebih mudah dikelola.
+---------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
