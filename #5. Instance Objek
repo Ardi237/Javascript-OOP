@@ -1,0 +1,143 @@
+A. Umum : 
+1. Dalam JavaScript, instace adalah objek yang dibuat menggunakan constructor function atau class.
+-------------------------------------------------------------------------
+2. Istilah `instance` merujuk pada objek tertentu yang merupakan hasil dari proses pembuatan (instansiasi) menggunakan `new` dan constructor function atau class.
+-------------------------------------------------------------------------
+
+
+
+B. Penjelasan dengan contoh :
+1. Constructor Function :
+function Car(make, model) {
+  this.make = make;
+  this.model = model;
+}
+
+const car1 = new Car("Toyota", "Corolla");
+const car2 = new Car("Honda", "Civic");
+-------------------------------------------------------------------------
+//Dalam contoh di atas.
+* `Car` : constructor
+* `car1` & `car2` : Instances dari constructor function `Car`.
+-------------------------------------------------------------------------
+-------------------------------------------------------------------------
+2. Class : 
+class Car {
+  constructor (make, model){
+    this.make = make;
+    this.model = model;
+  }
+}
+
+const car1 = new Car("Toyota", "Corolla");
+const car2 = new Car("Honda", "Civic");
+-------------------------------------------------------------------------
+-------------------------------------------------------------------------
+
+
+
+C. Ciri-ciri Instance : 
+1. Memiliki properti dan metode dari Constructor function atau class : Sebuah instance memiliki semua properti dan metode yang didefinisikan dalam constructor function atau class. Contohnya, car1.make akan memiliki nilai "Toyota".
+-------------------------------------------------------------------------
+2. Mewakili Objek Spesifik :  Setiap instance mewakili objek spesifik. Meskipun dibuat dari blueprint yang sama (constructor function atau class), setiap instance adalah objek unik dengan nilai properti yang mungkin berbeda.
+-------------------------------------------------------------------------
+3. Terhubung ke Prototipe : Setiap instance terhubung ke prototype dari constructor function atau class-nya, yang memungkinkan instance untuk mewarisi metode atau properti yang didefinisikan dalam prototipe.
+-------------------------------------------------------------------------
+
+
+D. Pengecekan Instance :
+1. JavaScript menyediakan operator `instaceof` untuk memeriksa apakah sebuah objek adalah instance dari constructor function atau class tertentu.
+1a. Contoh : console.log(car1 instanceof Car); // Output: true
+//Ini akan mengembalikan `true` jika `car1` adalah instance dari constructor function atau class.
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+E. Kesimpulan :
+1. Instance : Objek yang dibuat dari constructor function atau class.
+2. Setiap instance memiliki properti dan metode yang didefinisikan oleh constructor function atau class.
+3. Instance mewakili objek spesifik yang unik, meskipun dibuat dari blueprint yang sama.
+4. Kita bisa menggunakan operator `instanceof` untuk memeriksa apakah sebuah objek adalah instance dari constructor function atau class tertentu.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
