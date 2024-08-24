@@ -88,11 +88,14 @@ Meskipun prototipe membuat pewarisan properti efisien, pencarian di rantai proto
 
 
 F. Kesimpulan :
-1. Prototipe adalah fitur inti dalam JavaScript yang memungkinkan pewarisan dan reuse kode. 2. Dengan memahami bagaimana prototipe bekerja, kamu bisa membuat kode yang lebih efisien 
+1. Prototipe adalah fitur inti dalam JavaScript yang memungkinkan pewarisan dan reuse kode. 
+------------------------------------------------------------------------
+2. Dengan memahami bagaimana prototipe bekerja, kamu bisa membuat kode yang lebih efisien 
    dan terstruktur dengan baik. 
+------------------------------------------------------------------------
 3. Prototype chain juga memberikan fleksibilitas dalam pencarian properti dan metode, 
    meskipun perlu berhati-hati dalam menggunakannya agar tidak memperlambat kinerja aplikasi.
-
+------------------------------------------------------------------------
 
 
 
