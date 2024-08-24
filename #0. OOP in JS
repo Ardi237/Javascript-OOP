@@ -1,0 +1,145 @@
+A. Umum : 
+1. Object-Oriented Programming (OOP) : Paradigma pemrograman yang didasarkan pada konsep `objek`. 
+--------------------------------------------------
+2. Dalam OOP, program diorganisasikan ke dalam objek-objek yang saling berinteraksi untuk menyelesaikan suatu masalah.
+--------------------------------------------------
+3. Setiap objek adalah representasi dari entitas dlama dunia nyata, seperti orang, mobil, atau transaksi, dan memiliki atirbut (data/properti) serta perilaku (metode/fungsi).
+--------------------------------------------------
+
+
+
+Konsep dasar OOP :
+
+A. Objects (Objek) :
+--------------------------------------------------
+1. Objek adalah entitas yang memiliki data dan fungsi. Data dalam objek dikenal sebagai atribut atau properti, dan fungsi dikenal sebagai metode.
+--------------------------------------------------
+2. Misalnya, objek `Mobil` mungkin atribut seperti `warna`, `model`, dan metode seperti `startEngine()`, `drive()`, dan `stop()`.
+--------------------------------------------------
+--------------------------------------------------
+
+
+B. Classes (Kelas) :
+--------------------------------------------------
+1. Kelas adalah blueprint atau template untuk membuat objek. Sebuah kelas mendefinisikan struktur dan perilaku objek, tetapi tidak menajdi objek itu sendiri.
+--------------------------------------------------
+2. Contohnya, kelas `Mobil` mendefinisikan atribut seperti `warna`, `merk`, dan `model`, serta metode seperti `startEngine()` dan `drive()`. 
+--------------------------------------------------
+3. Ketika kelas ini digunakan untuk membuat objek, maka terbentuklah objek `Mobil` yang konkret.
+--------------------------------------------------
+
+
+
+C. Encapsulation (Enkapsulasi) : 
+--------------------------------------------------
+1. Encapsulation adalah konsep untuk membungkus data (atribut) dan metode dalam satu unit (objek), serta mengontrol akses ke data tersebut. 
+--------------------------------------------------
+2. Ini melibatkan penggunaan access control, seperti private (untuk menyembunyikan data dari luar objek) dan public (untuk memberikan akses).
+--------------------------------------------------
+3. Tujuan utama dari enkapsulasi adalah melindungi data dari perubahan yang tidak diinginkan dan menyediakan interface yang jelas untuk berinteraksi dengan objek.
+--------------------------------------------------
+
+
+
+D. Inheritance (Pewarisan) :
+--------------------------------------------------
+1. Inheritance adalah mekanisme di mana sebuah kelas (child/subclass) dapat mewarisi sifat (properti dan metode) dari kelas lain (parent/superclass). Dengan pewarisan, kamu bisa menghindari duplikasi kode dan menciptakan hierarki kelas.
+--------------------------------------------------
+2. Contoh : Kelas `mobilListrik` bisa mewarisi atribut dan metode dari kelas `mobil`, tetapi juga memiliki atribut dan metode khusus seperti `batteryCapacity` dan `charge()`,
+--------------------------------------------------
+
+
+
+E. Polymorphism (Polimorfisme) :
+--------------------------------------------------
+1. Polymoprhism memungkinkan satu fungsi atau metode untuk bertindak berbeda berdasarkan objek yang memanggilnya. 
+--------------------------------------------------
+2. Polimorfisme bisa berupa `method overriding` (mengubah perilaku metode di subclas) atau method overloading (metode dengan nama yang sama tetapi parameter berbeda).
+--------------------------------------------------
+3. Contoh : Metode `drive()` mungkin berperilaku berbeda untuk objek `MobilBalap` dan `MobilKeluarga`, meskipun keduanya turunan dari keals "Mobil".
+--------------------------------------------------
+
+
+
+F. Abstraction (Abstraksi) :
+1. Abstraction adalah proses menyembunyikan detail implementasi dari pengguna dan hanya menampilkan fitur penting.
+--------------------------------------------------
+2. Ini membantu menyederhanakan interaksi dengan objek dan memungkinkan pengguna untuk fokus pada apa yang dilakukan oleh objek, bukan bagaimana caranya.
+--------------------------------------------------
+3. Misalnya, saat kamu menggunakan metode startEngine() pada objek "Mobil", kamu tidak perlu tahu bagaimana mesin dihidupkan secara internal; cukup tahu bahwa mesin mobil akan hidup.
+--------------------------------------------------
+--------------------------------------------------
+
+
+G. Manfaat OOP :
+1. Modularitas : Karena program dibagi menjadi objek-objek kecil yang terpisah, kode menjadi lebih modular dan mudah dikelola serta dipelihara.
+--------------------------------------------------
+2. Reuse (Penggunaan kembali) : Dengan inheritance dan penggunaan kelas, kode dapat digunakan kembali dalam program lain, yang mengurangi duplikasi kode dan mempercepat pengembangan.
+--------------------------------------------------
+3. Pemeliharaan lebih mudah : Encapsulation dan abstraction membantu membantu menjaga kode tetap rapi dan mudah dipelihara karena detail implementasinya tersembunyi dan hanya bagian yang relevan yang diekspos.
+--------------------------------------------------
+4. Flexibilitas dan Ekstensibilitas : Polymorphism memungkinkan untuk membuat kode yang fleksibel dan bisa diperluas di masa depan tanpa merusak struktur yang ada.
+--------------------------------------------------
+5. Pengelolaan Kompleksitas : Dengan membagi program menjadi objek-objek yang lebih kecil dan independen, OOP membantu mengelola kompleksitas program besar dan memfasilitasi pengembangan perangkat lunak yang lebih terorganisir.
+--------------------------------------------------
+
+
+
+H. Contoh Sederhana :
+1. Contoh :
+// Definisi kelas
+class Mobil {
+  constructor(merk, model) {
+    this.merk = merk;
+    this.model = model;
+  }
+
+  startEngine() {
+    console.log(`${this.merk} ${this.model} mesin dinyalakan.`);
+  }
+}
+
+// Membuat objek dari kelas
+const mobil1 = new Mobil("Toyota", "Corolla");
+mobil1.startEngine(); // Output: Toyota Corolla mesin dinyalakan.
+--------------------------------------------------
+//Dalam contoh ini:
+1. Kelas `Mobil` mendefinisikan atribut `merk` dan `model`, serta metode startEngine.
+--------------------------------------------------
+2. `mobil1` adalah objek (instance) dari kelas `Mobil`.
+Metode `startEngine` dipanggil pada objek `mobil1`, yang menunjukkan interaksi dengan objek dalam OOP.
+--------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
