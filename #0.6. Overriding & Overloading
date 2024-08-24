@@ -1,0 +1,82 @@
+A. Umum :
+-------------------------------------------------------------------
+1. Method Overriding :
+1a. Method Overrding : Konsep dalam object-oriented programming (OOP) di mana subclass (turunan) menyediakan implementasi spesifik dari metode yang sudah didefinisikan dalam superclass (induk). 
+1a. Dengan kata lain, method yang sama dalma superclass dapat di-"override" atau digantikan dengan versi yang lebih spesifik dalam subclass.
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+
+
+
+B. Contoh dalam JavaScript :
+1. Contoh :
+class Animal {
+  speak() {
+    console.log("The animal makes a sound.");
+  }
+}
+
+class Dog extends Animal {
+  speak() {
+    console.log("The dog barks.");
+  }
+}
+
+const myDog = new Dog();myDog.speak(); // Output: The dog barks.
+-------------------------------------------------------------------
+//Penjelasan :
+* Dalam contoh di atas, `Dog` merupakan subclass dari `Animal`, dan metode `speak()` pada `Dog` menggantikan (override) metode speak() pada Animal. Ketika metode speak() dipanggil pada objek Dog, JavaScript akan menggunakan versi metode yang didefinisikan dalam Dog.
+-------------------------------------------------------------------
+
+
+
+C. Method Overloading:
+1. Method Overloading adalah konsep di mana beberapa metode dengan nama yang sama tetapi memiliki parameter yang berbeda (jumlah atau tipe data) didefinisikan dalam class yang sama. 
+-----------------------------------------------------------
+2. Dalam banyak bahasa pemrograman (seperti Java dan C++), method overloading memungkinkan mendefinisikan beberapa metode dengan nama yang sama, tetapi dengan tanda tangan berbeda (kombinasi parameter yang berbeda).
+-----------------------------------------------------------
+
+
+
+D. Contoh dalam Javascript :
+1. Javascript tidak mendukung method overloading secara langsung seperti bahasa lain. Namun, kamu bisa mencapai perilaku serupa menggunakan trik seperti pengecekan parameter di dalam metode.
+-----------------------------------------------------------
+class Calculator {
+  add(a, b, c) {
+    if (c !== undefined) {
+      return a + b + c; // Menambahkan tiga angka
+    }
+    return a + b; // Menambahkan dua angka
+  }
+}
+
+const calc = new Calculator();
+console.log(calc.add(2, 3));       // Output: 5 (dua parameter)
+console.log(calc.add(2, 3, 4));    // Output: 9 (tiga parameter)
+-----------------------------------------------------------
+//Penjelasan :
+1. Dalam contoh ini, metode add() digunakan untuk menambahkan dua atau tiga angka. JavaScript mendeteksi jumlah parameter dan menyesuaikan perilaku metode.
+-----------------------------------------------------------
+
+
+
+
+E. Perbedaan Utama:
+1. Method Overriding:
+* Terjadi dalam hierarki kelas, di mana subclass menggantikan metode yang didefinisikan dalam superclass.
+* Fokus pada polimorfisme, di mana objek dari subclass dapat bertindak dengan cara yang berbeda dari superclass.
+-----------------------------------------------------------
+2. Method Overloading:
+* Melibatkan mendefinisikan beberapa metode dengan nama yang sama tetapi dengan parameter yang berbeda dalam class yang sama.
+* Fokus pada menyederhanakan kode dengan menggunakan metode yang sama untuk operasi berbeda berdasarkan parameter.
+-----------------------------------------------------------
+
+
+
+
+F. Kesimpulan :
+1. Method Overriding digunakan ketika kamu ingin menyesuaikan atau memperluas perilaku metode yang diwarisi dari superclass di subclass.
+-----------------------------------------------------------
+2. Method Overloading digunakan ketika kamu ingin menggunakan metode yang sama untuk operasi berbeda tetapi dengan parameter yang berbeda.
+-----------------------------------------------------------
