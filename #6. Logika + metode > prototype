@@ -1,0 +1,90 @@
+A. Umum :
+1. Efisiensi Memori : 
+1a. Jika metode ditambahkan di dalam constructor function :  
+* Setiap kali objek baru dibuat menggunakan constructor function, metode tersebut akan digandakan di setiap instance objek. 
+--------------------------------------------------------------------------
+*  Ini berarti jika kamu membuat banyak objek, masing-masing objek akan memiliki salinan metode yang sama. Ini bisa menghabiskan lebih banyak memori.
+--------------------------------------------------------------------------
+* : Contoh :
+function Person(name) {
+  this.name = name;
+  this.greet = function() {
+    console.log(`Hello, my name is ${this.name}`);
+  };
+}
+
+const person1 = new Person("Alice");
+const person2 = new Person("Bob");
+
+console.log(person1.greet === person2.greet); // Output: false (Metode digandakan)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+1b. Jika metode ditambahkan ke prototype: 
+* Metode tersebut hanya akan dibuat sekali di dalam prototype, dan semua instance objek akan berbagi referensi ke metode yang sama. 
+--------------------------------------------------------------------------
+* Ini menghemat memori karena hanya ada satu salinan metode di dalam prototype yang digunakan oleh semua objek.
+--------------------------------------------------------------------------
+* Contoh : 
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.greet = function() {
+  console.log(`Hello, my name is ${this.name}`);
+};
+
+const person1 = new Person("Alice");
+const person2 = new Person("Bob");
+
+console.log(person1.greet === person2.greet); // Output: true (Metode berbagi referensi yang sama)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+//Penjelasan :
+Keuntungan: Pendekatan ini lebih efisien secara memori karena metode hanya dibuat satu kali di prototype, dan semua instance objek menggunakan metode yang sama.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+
+
+2. Prinsip pewarisan (Inheritance) :
+2a. Dalam JavaScript, objek dapat mewarisi properti dan metode dari objek lain melalui prototype chain. 
+* Ketika kamu menambahkan metode ke prototype, kamu memanfaatkan pewarisan ini. Setiap instance objek akan mewarisi metode dari prototype, sehingga memungkinkan penggunaan metode yang sama di berbagai instance.
+--------------------------------------------------------------------------
+* Contoh : Jika kamu membuat subclass yang mewarisi dari superclass, subclass akan memiliki akses ke meteode yang ditambahkan di prototype superclass tanpa perlu menduplikasi kode. 
+function Animal(name) {
+  this.name = name;
+}
+
+Animal.prototype.speak = function() {
+  console.log(`${this.name} makes a noise.`);
+};
+
+function Dog(name) {
+  Animal.call(this, name); // Memanggil constructor superclass
+}
+
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+
+const dog = new Dog("Rex");
+dog.speak(); // Output: Rex makes a noise.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+//Penjelasan : Dengan menambahkan metode ke prototype, kamu memfasilitasi pewarisan dan reuse metode di subclass tanpa perlu mendefinisikan ulang metode yang sama.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
