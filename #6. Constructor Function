@@ -1,0 +1,91 @@
+A. Umum :
+1. Constructor function adalah pola dalam JavaScprit yang digunakan untuk membuat objek.
+---------------------------------------------------
+2. Fungsi ini bertindak seperti cetakan atau blueprint untuk menghasilkan banyak objek dengan struktur dan perilaku yang sama.
+---------------------------------------------------
+3. Constructor function memungkinkan kamu untuk membuat objek baru dengan properti dan metode yang ditentukan di dalam fungsi tersebut.
+---------------------------------------------------
+
+
+
+B. Cara kerja Constructor function :
+1. Fungsi didefinisikan :
+*. Sebuah constructor function adalah fungsi biasa, tetapi umumnya diawali dengan huruf kapital untuk membedakannya dari fungsi biasa.
+---------------------------------------------------
+2. Instalasi dengan `new` :
+*. Ketika kamu menggunakan keyword new di depan constructor function, JavaScript akan membuat objek baru yang terkait dengan constructor function tersebut.
+---------------------------------------------------
+*. Objek baru ini akan secara otomatis memiliki properti dan metode yang didefinisikan di dalam constructor function.
+---------------------------------------------------
+*. Constructor function tidak secara eksplisit mengembalikan nilai. new secara otomatis mengembalikan objek baru.
+---------------------------------------------------
+
+
+
+C. Contoh Constructor function :
+---------------------------------------------------
+1. Contoh :
+---------------------------------------------------
+function Person(name, age) {
+  // Properti
+  this.name = name;
+  this.age = age;
+
+  // Metode
+  this.greet = function() {
+    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+  };
+}
+
+// Membuat objek baru menggunakan constructor function
+const person1 = new Person("Alice", 30);
+const person2 = new Person("Bob", 25);
+
+person1.greet(); // Output: Hello, my name is Alice and I am 30 years old.
+person2.greet(); // Output: Hello, my name is Bob and I am 25 years old.
+---------------------------------------------------
+---------------------------------------------------
+//Penjelasan :
+1. `person` : constructor function :
+---------------------------------------------------
+2. `this.name` dan `this.age` : properti yang akan dimiliki objek baru yang dibuat dari `person`.
+---------------------------------------------------
+3. `this.greet` : metode yang akan tersedia untuk setiap objek baru.
+---------------------------------------------------
+
+
+
+D. Cara kerja : 
+1. Ketika kamu membuat objek baru dengan new Person("Alice", 30), JavaScript:
+*. Membuat objek baru yang kosong.
+*. Mengatur konteks this di dalam Person untuk mengacu pada objek baru tersebut.
+*. Mengembalikan objek baru tersebut.
+---------------------------------------------------
+
+
+
+E. Kelebihan Constructor function :
+1. Reusability : Kamu dapat membuat banyak objek dengan struktur dan perilaku yang sama dengan cepat.
+---------------------------------------------------
+2. Inheritable : Objek yang dibuat menggunakan constructor function dapat mewarisi metode dan properti dari prototype yang ditetapkan.
+---------------------------------------------------
+
+
+
+F. Kekurangan :
+*. Memori : Jika kamu mendefinisikan metode di dalam constructor function, metode tersebut akan digandakan untuk setiap objek yang dibuat, yang dapat mengonsumsi lebih banyak memori. 
+*. Untuk mengatasi ini, metode biasanya ditambahkan ke prototype daripada di dalam constructor. 
+---------------------------------------------------
+
+
+
+G. Constructor function vs factory function :
+*. Constructor function : Menggunakan new dan this untuk membuat objek baru. Biasanya digunakan untuk membuat objek yang lebih kompleks atau ketika kamu memerlukan pewarisan.
+*. Mengembalikan objek baru tanpa menggunakan new dan this. Lebih fleksibel dan lebih mudah dipahami bagi pemula.
+---------------------------------------------------
+
+
+
+
+
+
