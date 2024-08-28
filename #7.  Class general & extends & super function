@@ -1,0 +1,116 @@
+A. Umum :
+1. Dalam Object-Oriented Programming (OOP), class, extends, dan super adalah konsep inti yang memungkinkan pengembang untuk membuat struktur kode yang lebih modular, dapat digunakan kembali, dan mengikuti prinsip pewarisan (inheritance).
+-----------------------------------------------------------------
+
+
+
+B. Class :
+* Class adalah template atau blueprint untuk membuat objek. 
+----------------------------------------------------------------------
+* Dalam JavaScript, class diperkenalkan sebagai cara yang lebih modern dan bersih untuk membuat objek, meskipun di balik layar, JavaScript masih menggunakan prototype untuk mengimplementasikan pewarisan.
+----------------------------------------------------------------------
+* Class memungkinkan kamu untuk mendefinisikan properti dan metode yang akan dimiliki oleh yang dibuat dari class tersebut.
+----------------------------------------------------------------------
+* Contoh :
+---->
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  greet() {
+    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+  }
+}
+
+const person1 = new Person('Alice', 30);
+person1.greet();  // Output: Hello, my name is Alice and I am 30 years old.
+<----
+Pada contoh di atas, Person adalah class, dan constructor adalah fungsi khusus yang dipanggil ketika objek baru dibuat menggunakan keyword new.
+----------------------------------------------------------------------
+
+
+
+C. Extends :
+1. Extends adalah kata kunci yang digunakan untuk membuat subclass atau turunan dari class lain.
+----------------------------------------------------------------------
+* Ini memungkinkan pewarisan, yaitu subclass mewarisi properti dan metode dari class induk (superclass).
+----------------------------------------------------------------------
+* kata kunci yang digunakan untuk membuat subclass atau turunan dari class lain. Ini memungkinkan pewarisan, yaitu subclass mewarisi properti dan metode dari class induk (superclass).
+----------------------------------------------------------------------
+* Contoh :
+---->
+class Dog extends Animal {
+  constructor(name, breed) {
+    super(name, "Dog");
+    this.breed = breed;
+  }
+
+  speak() {
+    console.log(`${this.name} barks.`);
+  }
+}
+
+const myDog = new Dog("Buddy", "Golden Retriever");
+myDog.speak();  // Output: Buddy barks.
+<----
+* Dalam contoh ini, Dog adalah subclass yang mewarisi Animal menggunakan extends. Subclass Dog memiliki tambahan properti breed dan juga mengubah metode speak().
+----------------------------------------------------------------------
+
+
+
+D. Super: Memanggil Konsruktor Superclass :
+1. Kata kunci super digunakan dalam subclass untuk mengakses dan memanggil fungsi dari superclass. 
+* Hal ini paling umum digunakan dalam constructor untuk memanggil constructor superclass, yang memungkinkan subclass untuk mewarisi dan menginisialisasi properti dari superclass.
+* Super juga dapat digunakan untuk memanggil metode yang sama dari superclass jika diperlukan.
+----------------------------------------------------------------------
+* Contoh :
+---->
+class Dog extends Animal {
+  constructor(name, breed) {
+    super(name, "Dog");  // Memanggil constructor superclass Animal
+    this.breed = breed;
+  }
+
+  speak() {
+    super.speak();  // Memanggil metode speak() dari superclass Animal
+    console.log(`${this.name} barks.`);
+  }
+}
+<----
+* Dalam constructor Dog, super(name, "Dog") memanggil constructor Animal, menginisialisasi properti name dan species. Selain itu, metode speak() di Dog dapat menggunakan super.speak() untuk memanggil implementasi speak() dari Animal.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
